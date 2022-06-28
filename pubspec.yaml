@@ -13,8 +13,9 @@ dependencies:
 
   ui_kosmos_v4:
     git:
+      publish_to: none
       url: https://gitlab+deploy-token-1156709:fR3FsBtxfwwKuM43HyWp@gitlab.com/package16/package-ui-kosmos.git
-      ref: 9000189897ac4414d154d0e6b99b4ddb657f5d71
+      ref: main
 
 dev_dependencies:
   flutter_test:
