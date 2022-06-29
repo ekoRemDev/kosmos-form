@@ -215,6 +215,24 @@ abstract class FormGenerator {
           onChanged: field.onChanged ?? onChanged,
           defaultChecked: field.initialValue ?? false,
         );
+      case FormFieldType.phone:
+        return TextFormUpdated.phoneNumber(
+          fieldName: "${field.fieldName ?? ""}${field.requiredForForm ? "*" : ""}",
+          fieldNameStyle: field.theme?.fieldStyle,
+          hintText: field.placeholder,
+          hintTextStyle: field.theme?.hintStyle,
+          onInputChanged: field.onChanged ?? onChanged,
+          fieldPostRedirection: field.suffix,
+          postFieldOnClick: field.onTapSuffix,
+          textInputAction: next != null ? TextInputAction.next : TextInputAction.done,
+          controller: controller,
+          focusNode: actual,
+          nextFocusNode: next,
+          backgroundColor: field.theme?.backgroundColor,
+          cursorColor: field.theme?.cursorColor,
+          contentPadding: field.theme?.contentPadding as EdgeInsets?,
+          initialPhoneValue: field.initialValue,
+        );
     }
   }
 
