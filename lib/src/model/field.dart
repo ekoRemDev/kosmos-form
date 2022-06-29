@@ -6,6 +6,7 @@ enum FormFieldType {
   text,
   email,
   textArea,
+  phone,
 
   /// security
   password,
