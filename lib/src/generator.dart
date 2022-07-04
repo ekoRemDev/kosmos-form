@@ -139,6 +139,7 @@ abstract class FormGenerator {
           backgroundColor: field.theme?.backgroundColor,
           contentPadding: field.theme?.contentPadding,
           value: field.initialValue,
+          items: field.dropdownItems,
         );
       case FormFieldType.numberplate:
         return TextFormUpdated.immatriculation(

@@ -50,6 +50,7 @@ class FieldFormModel {
   final String? suffix;
   final CustomFormFieldThemeData? theme;
   final void Function(dynamic)? onChanged;
+  final List<DropdownMenuItem<Object>>? dropdownItems;
 
   /// authorizations
   final bool requiredForForm;
@@ -78,5 +79,8 @@ class FieldFormModel {
     ///Slider
     this.sliderMinValue = 0,
     this.sliderMaxValue = 100,
+
+    ///Dropdown
+    this.dropdownItems,
   }) : assert(sliderMinValue < sliderMaxValue);
 }
