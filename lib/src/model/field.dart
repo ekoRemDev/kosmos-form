@@ -29,6 +29,7 @@ class FieldModel {
   final String? placeholder;
   final String? fieldName;
   final String? Function(dynamic)? validator;
+  final CustomFormFieldThemeData? theme;
 
   const FieldModel({
     required this.tag,
@@ -36,6 +37,7 @@ class FieldModel {
     this.fieldName,
     this.placeholder,
     this.validator,
+    this.theme,
   });
 }
 
