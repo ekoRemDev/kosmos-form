@@ -1,7 +1,7 @@
 name: form_generator_kosmos
 description: A new Flutter package project.
 version: 1.1.0
-homepage:
+homepage: none
 publish_to: 'none'
 
 environment:
@@ -16,7 +16,6 @@ dependencies:
     git:
       publish_to: 'none'
       url: https://gitlab+deploy-token-1156709:fR3FsBtxfwwKuM43HyWp@gitlab.com/package16/package-ui-kosmos.git
-      # ref: dev
       ref: main
 
 dev_dependencies:
