@@ -134,12 +134,12 @@ abstract class FormGenerator {
           },
         );
       case FormFieldType.dropdown:
-        return TextFormUpdated.select(
+        return SelectForm(
           fieldName: "${field.fieldName ?? ""}${field.requiredForForm ? "*" : ""}",
           fieldNameStyle: field.theme?.fieldStyle,
           hintText: field.placeholder,
           hintTextStyle: field.theme?.hintStyle,
-          onChanged: field.onChanged ?? onChanged,
+          onChangedSelect: field.onChanged ?? onChanged,
           backgroundColor: field.theme?.backgroundColor,
           contentPadding: field.theme?.contentPadding,
           value: field.initialValue,
