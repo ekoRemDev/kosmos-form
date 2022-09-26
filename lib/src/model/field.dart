@@ -21,6 +21,7 @@ enum FormFieldType {
   slide,
   range,
   checker,
+  number,
 }
 
 class FieldModel {
@@ -53,6 +54,7 @@ class FieldFormModel {
   final CustomFormFieldThemeData? theme;
   final void Function(dynamic)? onChanged;
   final List<DropdownMenuItem<Object>>? dropdownItems;
+  final Widget? child;
 
   /// authorizations
   final bool requiredForForm;
@@ -73,6 +75,7 @@ class FieldFormModel {
     this.onTapSuffix,
     this.theme,
     this.onChanged,
+    this.child,
 
     ///authorizations
     this.requiredForNextStep = true,

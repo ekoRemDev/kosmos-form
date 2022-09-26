@@ -175,6 +175,7 @@ abstract class FormGenerator {
           postFieldOnClick: field.onTapSuffix,
           onChanged: field.onChanged ?? onChanged,
           defaultFile: field.initialValue,
+          child: field.child,
         );
       case FormFieldType.imageMultiple:
         return Input.image(
@@ -183,6 +184,7 @@ abstract class FormGenerator {
           fieldPostRedirection: field.suffix,
           postFieldOnClick: field.onTapSuffix,
           onChanged: field.onChanged ?? onChanged,
+          // child: ,
           defaultFile: field.initialValue,
         ); //TODO mulitple image
       case FormFieldType.file:
@@ -238,6 +240,30 @@ abstract class FormGenerator {
           cursorColor: field.theme?.cursorColor,
           contentPadding: field.theme?.contentPadding as EdgeInsets?,
           initialPhoneValue: field.initialValue,
+        );
+      case FormFieldType.number:
+        return TextFormUpdated.classic(
+          fieldName: "${field.fieldName ?? ""}${field.requiredForForm ? "*" : ""}",
+          fieldNameStyle: field.theme?.fieldStyle,
+          hintText: field.placeholder,
+          hintTextStyle: field.theme?.hintStyle,
+          fieldPostRedirectionStyle: field.theme?.fieldPostRedirectionStyle,
+          onChanged: field.onChanged ?? onChanged,
+          fieldPostRedirection: field.suffix,
+          postFieldOnClick: field.onTapSuffix,
+          textInputAction: next != null ? TextInputAction.next : TextInputAction.done,
+          controller: controller,
+          focusNode: actual,
+          nextFocusNode: next,
+          textInputType: const TextInputType.numberWithOptions(),
+          backgroundColor: field.theme?.backgroundColor,
+          cursorColor: field.theme?.cursorColor,
+          contentPadding: field.theme?.contentPadding as EdgeInsets?,
+          defaultValue: field.initialValue,
+          validator: (String? val) {
+            if (field.validator != null) return field.validator!(val);
+            return null;
+          },
         );
     }
   }
