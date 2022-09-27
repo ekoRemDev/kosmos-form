@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  file_picker: ^4.6.1
+  
   ui_kosmos_v4:
     git:
       publish_to: 'none'

@@ -1,3 +1,4 @@
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:form_generator_kosmos/src/model/field.dart';
 import 'package:ui_kosmos_v4/ui_kosmos_v4.dart';
@@ -175,6 +176,17 @@ abstract class FormGenerator {
           postFieldOnClick: field.onTapSuffix,
           onChanged: field.onChanged ?? onChanged,
           defaultFile: field.initialValue,
+          onTap: () async {
+            FilePickerResult? result = await FilePicker.platform.pickFiles(
+              type: FileType.custom,
+              allowedExtensions: ['jpg', 'png'],
+            );
+            if (field.onChanged != null) {
+              field.onChanged!(result?.files.single);
+            } else if (onChanged != null) {
+              onChanged(result?.files.single);
+            }
+          },
           child: field.child,
         );
       case FormFieldType.imageMultiple:
