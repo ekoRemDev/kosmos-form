@@ -1,6 +1,8 @@
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:form_generator_kosmos/src/model/field.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ui_kosmos_v4/ui_kosmos_v4.dart';
 import 'package:core_kosmos/core_kosmos.dart';
 
@@ -177,14 +179,24 @@ abstract class FormGenerator {
           onChanged: field.onChanged ?? onChanged,
           defaultFile: field.initialValue,
           onTap: () async {
-            FilePickerResult? result = await FilePicker.platform.pickFiles(
-              type: FileType.custom,
-              allowedExtensions: ['jpg', 'png'],
-            );
-            if (field.onChanged != null) {
-              field.onChanged!(result?.files.single);
-            } else if (onChanged != null) {
-              onChanged(result?.files.single);
+            if (kIsWeb) {
+              FilePickerResult? result = await FilePicker.platform.pickFiles(
+                type: FileType.custom,
+                allowedExtensions: ['jpg', 'png'],
+              );
+              if (field.onChanged != null) {
+                field.onChanged!(result?.files.single);
+              } else if (onChanged != null) {
+                onChanged(result?.files.single);
+              }
+            } else {
+              final ImagePicker _picker = ImagePicker();
+              final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+              if (field.onChanged != null) {
+                field.onChanged!(image);
+              } else if (onChanged != null) {
+                onChanged(image);
+              }
             }
           },
           child: field.child,
