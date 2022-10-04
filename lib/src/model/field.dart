@@ -49,6 +49,7 @@ class FieldFormModel {
   final String? placeholder;
   final String? fieldName;
   final dynamic initialValue;
+  final String? initialValuePicture;
   final VoidCallback? onTapSuffix;
   final String? suffix;
   final CustomFormFieldThemeData? theme;
@@ -71,6 +72,7 @@ class FieldFormModel {
     this.fieldName,
     this.placeholder,
     this.initialValue,
+    this.initialValuePicture,
     this.suffix,
     this.onTapSuffix,
     this.theme,
