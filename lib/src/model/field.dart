@@ -58,6 +58,7 @@ class FieldFormModel {
   final void Function(dynamic)? onChanged;
   final List<DropdownMenuItem<Object>>? dropdownItems;
   final Widget? child;
+  final String? defaultImageUrl;
 
   /// authorizations
   final bool requiredForForm;
@@ -81,6 +82,7 @@ class FieldFormModel {
     this.theme,
     this.onChanged,
     this.child,
+    this.defaultImageUrl,
 
     ///authorizations
     this.requiredForNextStep = true,
