@@ -51,6 +51,8 @@ class FieldFormModel {
   final dynamic initialValue;
   final String? initialValuePicture;
   final VoidCallback? onTapSuffix;
+  final VoidCallback? onTap;
+
   final String? suffix;
   final CustomFormFieldThemeData? theme;
   final void Function(dynamic)? onChanged;
@@ -69,6 +71,7 @@ class FieldFormModel {
     required this.tag,
     this.type = FormFieldType.text,
     this.validator,
+    this.onTap,
     this.fieldName,
     this.placeholder,
     this.initialValue,

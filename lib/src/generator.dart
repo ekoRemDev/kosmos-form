@@ -175,6 +175,7 @@ abstract class FormGenerator {
           postFieldOnClick: field.onTapSuffix,
           onChanged: field.onChanged ?? onChanged,
           defaultFile: field.initialValue,
+          onTap: field.onTap,
           child: field.child,
         );
       case FormFieldType.imageMultiple:
@@ -184,6 +185,7 @@ abstract class FormGenerator {
           fieldPostRedirection: field.suffix,
           postFieldOnClick: field.onTapSuffix,
           onChanged: field.onChanged ?? onChanged,
+          onTap: field.onTap,
           // child: ,
           defaultFile: field.initialValue,
         ); //TODO mulitple image
