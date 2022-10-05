@@ -30,6 +30,7 @@ abstract class FormGenerator {
           textInputType: TextInputType.text,
           backgroundColor: field.theme?.backgroundColor,
           cursorColor: field.theme?.cursorColor,
+          subFieldText: field.subFieldText,
           contentPadding: field.theme?.contentPadding as EdgeInsets?,
           defaultValue: field.initialValue,
           validator: (String? val) {
@@ -50,6 +51,7 @@ abstract class FormGenerator {
           controller: controller,
           fieldPostRedirectionStyle: field.theme?.fieldPostRedirectionStyle,
           focusNode: actual,
+          subFieldText: field.subFieldText,
           nextFocusNode: next,
           textInputType: TextInputType.emailAddress,
           backgroundColor: field.theme?.backgroundColor,
@@ -71,6 +73,7 @@ abstract class FormGenerator {
           controller: controller,
           focusNode: actual,
           nextFocusNode: next,
+          subFieldText: field.subFieldText,
           backgroundColor: field.theme?.backgroundColor,
           cursorColor: field.theme?.cursorColor,
           contentPadding: field.theme?.contentPadding,
@@ -96,6 +99,7 @@ abstract class FormGenerator {
           fieldPostRedirectionStyle: field.theme?.fieldPostRedirectionStyle,
           focusNode: actual,
           obscuringText: true,
+          subFieldText: field.subFieldText,
           nextFocusNode: next,
           textInputType: TextInputType.visiblePassword,
           backgroundColor: field.theme?.backgroundColor,
@@ -120,6 +124,7 @@ abstract class FormGenerator {
           textInputAction: next != null ? TextInputAction.next : TextInputAction.done,
           controller: controller,
           focusNode: actual,
+          subFieldText: field.subFieldText,
           fieldPostRedirection: field.suffix,
           postFieldOnClick: field.onTapSuffix,
           fieldPostRedirectionStyle: field.theme?.fieldPostRedirectionStyle,
@@ -144,6 +149,7 @@ abstract class FormGenerator {
           contentPadding: field.theme?.contentPadding,
           value: field.initialValue,
           items: field.dropdownItems,
+          subFieldText: field.subFieldText,
         );
       case FormFieldType.numberplate:
         return TextFormUpdated.immatriculation(
@@ -162,6 +168,7 @@ abstract class FormGenerator {
           cursorColor: field.theme?.cursorColor,
           contentPadding: field.theme?.contentPadding as EdgeInsets?,
           defaultValue: field.initialValue,
+          subFieldText: field.subFieldText,
           validator: (String? val) {
             if (field.validator != null) return field.validator!(val);
             return null;
@@ -186,7 +193,7 @@ abstract class FormGenerator {
           postFieldOnClick: field.onTapSuffix,
           onChanged: field.onChanged ?? onChanged,
           onTap: field.onTap,
-          // child: ,
+          child: field.child,
           defaultFile: field.initialValue,
         ); //TODO mulitple image
       case FormFieldType.file:

@@ -54,6 +54,7 @@ class FieldFormModel {
   final VoidCallback? onTap;
 
   final String? suffix;
+  final String? subFieldText;
   final CustomFormFieldThemeData? theme;
   final void Function(dynamic)? onChanged;
   final List<DropdownMenuItem<Object>>? dropdownItems;
@@ -80,6 +81,7 @@ class FieldFormModel {
     this.suffix,
     this.onTapSuffix,
     this.theme,
+    this.subFieldText,
     this.onChanged,
     this.child,
     this.defaultImageUrl,
