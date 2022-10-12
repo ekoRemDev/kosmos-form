@@ -238,6 +238,7 @@ abstract class FormGenerator {
           fieldNameStyle: field.theme?.fieldStyle,
           hintText: field.placeholder,
           hintTextStyle: field.theme?.hintStyle,
+          validator: field.validator,
           onInputChanged: field.onChanged ?? onChanged,
           fieldPostRedirection: field.suffix,
           postFieldOnClick: field.onTapSuffix,
