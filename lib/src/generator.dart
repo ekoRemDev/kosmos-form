@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_generator_kosmos/src/model/field.dart';
+import 'package:ui_kosmos_v4/form/theme.dart';
 import 'package:ui_kosmos_v4/ui_kosmos_v4.dart';
 import 'package:core_kosmos/core_kosmos.dart';
 
@@ -86,6 +87,7 @@ abstract class FormGenerator {
           },
         );
       case FormFieldType.password:
+        final themeData = loadThemeData(null, "input_field", () => const CustomFormFieldThemeData())!;
         return TextFormUpdated.classic(
           fieldName: "${field.fieldName ?? ""}${field.requiredForForm ? "*" : ""}",
           fieldNameStyle: field.theme?.fieldStyle,
@@ -106,8 +108,8 @@ abstract class FormGenerator {
           isUpdatable: true,
           cursorColor: field.theme?.cursorColor,
           contentPadding: field.theme?.contentPadding as EdgeInsets?,
-          suffixChild: const Icon(Icons.remove_red_eye_outlined),
-          suffixChildActive: const Icon(Icons.remove_red_eye),
+          suffixChild: Icon(Icons.remove_red_eye_outlined, color: themeData.suffixIconColor),
+          suffixChildActive: Icon(Icons.remove_red_eye, color: themeData.suffixIconColor),
           defaultValue: field.initialValue,
           validator: (String? val) {
             if (field.validator != null) return field.validator!(val);
